@@ -9,7 +9,8 @@
       <div class="header-nav-item" *ngIf="isAboutCompany">{{ aboutCompany }}</div>
       <div class="header-nav-item" *ngIf="isShowCatalogOne">{{ textCatalog }}</div>
     </nav>
-    <button (click)="isAboutCompany = !isAboutCompany">Скрыть/Показать</button>
+    <button (click)="isAboutCompany = !isAboutCompany">Скрыть/Показать компанию</button>
+    <button (click)="isShowCatalogOne = !isShowCatalogOne">Скрыть/Показать каталог</button>
     <button (click)="changeMenuText()">Изменить текст</button>
   </div>
 
@@ -36,9 +37,9 @@
   <div class="header-second-left">
     <img class="header-second-logo" src="/assets/light.svg" alt="" />
     <nav class="nav-2" *ngIf="changeMenuText">
-      <div class="header-second-nav-item" *ngFor="let li of menuItems">{{ li }} </div>
+      <div class="header-second-nav-item" *ngFor="let i of menuItems">{{ i }} </div>
     </nav>
-    <button (click)="isRectangleImage = !isRectangleImage">Скрыть/Показать Мужика</button>
+    <button (click)="isShowImage = !isShowImage">Скрыть/Показать Мужика</button>
   </div>
   <div class="header-second-right">
     <form class="header-second-item">
@@ -52,7 +53,7 @@
 </div>
 
 <div>
-  <img *ngIf="isRectangleImage" src="/assets/Rectangle_5.png" alt="background-large" style="width: 100%" />
+  <img *ngIf="isShowImage" src="/assets/Rectangle_5.png" alt="background-large" style="width: 100%" />
 </div>
 
 <div class="content-content-3-symbols">`
@@ -87,7 +88,7 @@
 <div class="content-container">
   <div class="item-cards">
     <div class="item-cards__pagination">
-      <button *ngFor="let item of newPages" class="item-cards__pagination-button active-button">{{ item }} </button>
+      <button class="item-cards__pagination-button active-button" *ngFor="let i of newPages">{{ i }}</button>
     </div>
     <div class="item-cards__grid">
       <div class="item-cards__grid-left">

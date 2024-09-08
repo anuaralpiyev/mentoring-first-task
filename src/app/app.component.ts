@@ -41,7 +41,7 @@ const textMain = 'Главная';
 const funcAboutCompany = (text: string) => text;
 const textAboutCompany = 'О компании';
 
-const fancCatalog = (text: string) => text;
+const funcCatalog = (text: string) => text;
 const textCatalog = 'Каталог';
 
 const newPagesArrays = [5, 4, 3, 2, 1];
@@ -52,7 +52,7 @@ const newPagesArrays = [5, 4, 3, 2, 1];
   imports: [RouterOutlet, NgFor, NgIf],
   templateUrl: './app.component.html', // Путь до шаблона
   styleUrl: './app.component.scss', // Путь до стилей
-  // ./ - означает ищу в это папке такой-то файл
+  // ./ - означает ищу в этой папке такой-то файл
 
   // app.component.ts - имеет такие свойства как templateUrl: и styleUrl:
 })
@@ -60,31 +60,31 @@ export class AppComponent {
   // Экспортируем класс
   title: string = 'mentoring-first-project';
 
+  isAboutCompany = true; // Все что начинается на 'is' это boolean
   isShowCatalogOne = true; // Все что начинается на 'is' это boolean
-  isRectangleImage = true;
-  isAboutCompany = true;
+  isShowImage = true; // Все что начинается на 'is' это boolean
 
-  isUpperCase = true;
-
-  changeMenuText() {
-    this.menuItems = upperCaseMenuItems.map((item) =>
-      this.isUpperCase ? item.toLowerCase() : item.toUpperCase()
-    );
-    return this.isUpperCase = !this.isUpperCase;
-  }
+  isUpperCase = true; // Все что начинается на 'is' это boolean
 
   readonly main = funcMain(textMain);
   readonly aboutCompany = funcAboutCompany(textAboutCompany);
-  readonly textCatalog = fancCatalog(textCatalog);
+  readonly textCatalog = funcCatalog(textCatalog);
 
-  readonly header2Item1 = upperCaseMenuItems[0];
-  readonly header2Item2 = 'Стройматериалы';
-  readonly header2Item3 = 'Инструменты';
-  readonly header2Item4 = 'Электрика';
-  readonly header2Item5 = 'Интерьер и одежда';
+  // readonly header2Item1 = upperCaseMenuItems[0];
+  // readonly header2Item2 = upperCaseMenuItems[1];
+  // readonly header2Item3 = 'Инструменты';
+  // readonly header2Item4 = 'Электрика';
+  // readonly header2Item5 = 'Интерьер и одежда';
+  readonly newPages = newPagesArrays;
 
   menuItems = upperCaseMenuItems;
-  newPages = newPagesArrays;
+
+  changeMenuText() {
+    this.menuItems = this.menuItems.map((item) =>
+      this.isUpperCase ? item.toLowerCase() : item.toUpperCase()
+    );
+    return (this.isUpperCase = !this.isUpperCase);
+  }
 
   // В Angular переменные(поле класса) пишем сразу в классах и компонентах.
   // Теперь и в классах и в компонетах переменные пишем без 'let' и 'const'
