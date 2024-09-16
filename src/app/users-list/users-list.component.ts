@@ -43,7 +43,7 @@ export class UsersListComponent {
       .subscribe((response: any) => {
         this.users = response;
         console.log('USERS: ', this.users);
-      });
+      } );
   }
 
   deleteUser(id: number) {
