@@ -635,7 +635,20 @@
 }
 
 .imageBtn {
+  height: 29px;
+  width: 220px;
   position: absolute;
   left: 240px;
   top: 140px;
+  border: 1px #f0ba4e solid;
+  font-family: "Inter", sans-serif;
+  border-radius: 5px;
+  background-color: #3c3c3b;
+  color: #f0ba4e;
+  &:hover {
+    border: 2px #f0ba4e solid;
+    font-weight: 400;
+    color: white;
+    cursor: pointer;
+  }
 }
