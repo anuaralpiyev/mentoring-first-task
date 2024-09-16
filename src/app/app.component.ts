@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './loyaut/header.component';
 import { FooterComponent } from './loyaut/footer.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
