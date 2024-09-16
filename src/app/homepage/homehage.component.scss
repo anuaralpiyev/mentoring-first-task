@@ -636,7 +636,7 @@
 
 .imageBtn {
   height: 29px;
-  width: 220px;
+  width: 225px;
   position: absolute;
   left: 240px;
   top: 140px;
@@ -646,8 +646,7 @@
   background-color: #3c3c3b;
   color: #f0ba4e;
   &:hover {
-    border: 2px #f0ba4e solid;
-    font-weight: 400;
+    border: 2px #f6f6f6 solid;
     color: white;
     cursor: pointer;
   }
