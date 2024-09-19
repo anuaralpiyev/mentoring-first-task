@@ -41,6 +41,11 @@
   margin-left: 35px;
   display: flex;
   align-items: center;
+  &:hover {
+    font-weight: 700;
+    color: #f1bb4e;
+    cursor: pointer;
+  }
 }
 
 .header-number {
@@ -69,7 +74,8 @@
   color: white;
   &:hover {
     font-weight: 700;
-    color: #f1bb4e;
+    border: 2px #c8cad6 solid;
+    color: #f0ba4e;
     cursor: pointer;
   }
 }

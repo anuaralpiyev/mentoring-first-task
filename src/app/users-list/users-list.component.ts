@@ -38,12 +38,11 @@ export class UsersListComponent {
   users: User[] = [];
 
   constructor() {
-    this.apiService
-      .get<User[]>('https://jsonplaceholder.typicode.com/users')
+    this.apiService.get<User[]>('https://jsonplaceholder.typicode.com/users')
       .subscribe((response: any) => {
         this.users = response;
         console.log('USERS: ', this.users);
-      } );
+      });
   }
 
   deleteUser(id: number) {
@@ -54,3 +53,4 @@ export class UsersListComponent {
 // Метод .subscribe() в Angular используется для того, чтобы "подписаться" на Observable — поток данных,
 // который возвращает, например, HTTP-запрос или событие. Подписка позволяет получать данные
 // по мере их поступления и выполнять действия, как только данные станут доступны.
+

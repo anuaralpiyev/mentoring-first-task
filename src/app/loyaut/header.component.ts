@@ -31,13 +31,12 @@ const textCatalog = 'Каталог';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  isAboutCompany = true;
+  isAboutCompany: boolean = true;
+  isUpperCase: boolean = true;
 
   readonly main = funcMain(textMain);
   readonly aboutCompany = funcAboutCompany(textAboutCompany);
   readonly textCatalog = funcCatalog(textCatalog);
-
-  isUpperCase = true;
 
   menuItems = upperCaseMenuItems;
 
