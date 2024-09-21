@@ -5,17 +5,16 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './user-card.component.html',
-  styleUrl: './user-card.component.scss'
+  styleUrl: './user-card.component.scss',
 })
 export class UserCardComponent {
   @Input()
-  user: any;
+  userInput: any;
 
   @Output()
-  deleteUser = new EventEmitter();
+  deleteUserCard = new EventEmitter();
 
-  onDeleteUser(userId : number) {
-    this.deleteUser.emit(userId)
+  onDeleteUser(userId: number) {
+    this.deleteUserCard.emit(userId);
   }
 }
-

@@ -45,7 +45,7 @@ export class UsersListComponent {
     });
   }
 
-  deleteUser(id: number) {
+  deleteUserList(id: number) {
     this.users = this.users.filter((item) => item.id !== id);
   }
 }
