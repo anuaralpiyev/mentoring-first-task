@@ -41,7 +41,7 @@ export class UsersListComponent {
   constructor() {
     this.usersApiService.getUsers().subscribe((response: any) => {
       this.users = response;
-      console.log('USERS: ', this.users);
+      console.log('USERS: ', this.users); // Показаем данные в console браузера Chrome
     });
   }
 

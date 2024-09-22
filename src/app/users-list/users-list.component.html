@@ -2,7 +2,8 @@
 
 <div class="content_users">
     <div *ngFor="let i of users">
-        <app-user-card [userInput]="i" (deleteUserCard)="deleteUserList($event)"></app-user-card>
+        <app-user-card [userInput]="i" (deleteUserCard)="deleteUserList($event)"></app-user-card> 
+        // $event - пишем чтобы считать данные.
     </div>
 </div>
 
