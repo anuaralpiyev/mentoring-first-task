@@ -25,9 +25,17 @@
 .text {
   font-weight: 600;
   &:hover {
+    font-weight: 600;
     color: #efba50;
   }
 }
+
+.text_2 {
+  &:hover {
+    color: #efba50;
+  }
+}
+
 
 .btn_delete {
   display: flex;
