@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-todo-card',
@@ -8,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrl: './todo-card.component.scss'
 })
 export class TodoCardComponent {
+  @Input()
+  todoInput: any;
 
+  @Output()
+  deleteTodoCard = new EventEmitter();
+  
+  onDeleteTodo(todoId: number) {
+    this.deleteTodoCard.emit(todoId);
+  }
 }

@@ -1,1 +1,13 @@
-<p>todo-card works!</p>
+<div class="conteiner">
+    <div class="block_todos">
+        <p class="text">ТЕКСТ ЗАДАЧИ:</p>
+        <div class="text">{{todoInput.title}}</div>
+
+        <p class="text">АВТОР ЗАДАЧИ:</p>
+        <div class="text">{{todoInput.userId}}</div>
+
+        <p class="text">ЗАДАЧА ЗАВЕРШЕНА!</p>
+        <div class="text">{{todoInput.completed ? 'ДА' : 'НЕТ'}}</div>
+    </div>
+    <button (click)="onDeleteTodo(todoInput.id)" class="btn_delete">УДАЛИТЬ</button>
+</div>
