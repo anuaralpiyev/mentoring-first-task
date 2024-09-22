@@ -1,4 +1,5 @@
 .block_users {
+  background-color: #f2f2f2;
   flex-direction: column;
   justify-content: space-between;
   height: 250px;
@@ -11,6 +12,12 @@
   padding: 0 25px;
   border: 1px #353e4e solid;
   margin: 5px;
+  border-radius: 15px;
+  cursor: pointer;
+  &:hover {
+    background-color: #353e4e;
+    color: #f0f1f5;
+  }
 }
 
 .btn_delete {
@@ -21,14 +28,20 @@
   background: #efba50;
   margin: 0 auto;
   font-family: "Inter", sans-serif;
-  border-radius: 50px;
+  border-radius: 15px;
   font-size: 15px;
   color: #353e4e;
   cursor: pointer;
   margin: 10px 25px;
+  &:hover {
+    background-color: #353e4e;
+    font-weight: 600;
+    border: 3px solid #f0f1f5;
+    color: #efba50;
+  }
 }
 
-.btn_delete:hover {
+.text:hover {
   font-weight: 600;
-  border: 3px solid #626e84;
+  color: #efba50;
 }
