@@ -34,10 +34,10 @@ export interface User {
   styleUrl: './users-list.component.scss',
   standalone: true,
   imports: [NgFor, UserCardComponent, AsyncPipe], //* AsyncPipe - (| async) - это специальная функция которая читает данные из коробочек с данныеми из Subject-ов
-  changeDetection: ChangeDetectionStrategy.OnPush, // ChangeDetectionStrategy.OnPush  - В Angular будет проверять изменилсь ли ссылка на массив.
-  //* changeDetection: ChangeDetectionStrategy.OnPush - чтобы его использовать мы не должны мутировать
-  //* объекты, массивы а должны перезаписывать их чтобы менялась ссылка чтобы Angular видел изменения
-  //* changeDetection: ChangeDetectionStrategy.OnPush - Благодаря нему по мере расширения приложения не будет зависать в будущем. 
+  changeDetection: ChangeDetectionStrategy.OnPush, //* ChangeDetectionStrategy.OnPush  - В Angular будет проверять изменилсь ли ссылка на массив.
+  // changeDetection: ChangeDetectionStrategy.OnPush - чтобы его использовать мы не должны мутировать
+  // объекты, массивы а должны перезаписывать их чтобы менялась ссылка чтобы Angular видел изменения
+  // changeDetection: ChangeDetectionStrategy.OnPush - Благодаря нему по мере расширения приложения не будет зависать в будущем. 
 })
 export class UsersListComponent {
   readonly usersApiService = inject(UsersApiService);

@@ -13,20 +13,11 @@ export class UsersService {
   //* Установка юзеров
   setUsers(users: User[]) {
     // можно писать Array<User> или так User[] смысл один и тот же.
-    //! this.users = users;
     this.usersSubject$.next(users);
   }
 
   //* Изменение Юзера
   editUser(editedUser: User) {
-    //! this.users = this.users.map((user) => {
-    //!   if (user.id === editedUser.id) {
-    //!     return editedUser;
-    //!   } else {
-    //!     return user;
-    //!   }
-    //! });
-
     this.usersSubject$.next(
       this.usersSubject$.value.map((user) => {
         if (user.id === editedUser.id) {
@@ -40,7 +31,6 @@ export class UsersService {
 
   //* Создаем юзера
   createdUser(user: User) {
-    //! this.users = [...this.users, user]; // добавили нового Юзера
     this.usersSubject$.next([...this.usersSubject$.value, user]); // добавили нового Юзера
     // spreadOperation ... работает с объектами
     // restOperation ... работает с массивами
@@ -48,15 +38,9 @@ export class UsersService {
 
   //* Удаляем юзера
   deleteUser(id: number) {
-    //! this.users = this.users.filter((item) => {
-    //!   if (id === item.id) {
-    //!     return false;
-    //!   } else {
-    //!     return true;
-    //!   }
-    //! });
     this.usersSubject$.next(
       this.usersSubject$.value.filter((item) => {
+        // this.usersSubject$.value.filter((item) => id !== item.id) // короткая версия
         if (id === item.id) {
           return false;
         } else {
