@@ -6,9 +6,9 @@ import { Todo } from './todos-list/todos-list.component';
   providedIn: 'root',
 })
 export class TodosService {
-  todosSubject$ = new BehaviorSubject<Todo[]>([]);
-  // <Todo[]> - (<> дженрик тип) данных Todo[], озночает теперь в коробочке будет лежать Юзеры.
-  todos: Todo[] = [];
+  private todosSubject$ = new BehaviorSubject<Todo[]>([]);
+  // <Todo[]> - (<> дженрик тип) данных Todo[], озночает теперь в коробочке будет лежать Todo.
+  todos$ = this.todosSubject$.asObservable();
 
   //*Установка todos
   setTodos(todos: Todo[]) {

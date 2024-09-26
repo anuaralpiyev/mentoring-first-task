@@ -1,8 +1,16 @@
 <h1 class="name_title">Компонент списка юзеров</h1>
 
 <div class="content_users">
-    <div *ngFor="let i of usersService.usersSubject$ | async"> 
-        <app-user-card [userInput]="i" (deleteUserCard)="deleteUserList($event)"></app-user-card> 
+
+    <!-- для async нужно импротировать AsyncPipe в файле компонент и async позволяет преобразовать
+     данные из RXJS коробочки чтобы доставать и отображать данные на сайте так же async помогает
+     превратить usersService.usersSubject из типа BehaviorSubject в обычные данные
+     т.е. преобразует в обычный массив и затем ngFor работает без проблем -->
+    <div *ngFor="let i of usersService.users$ | async">
+
+        <!-- квадратные скобки это связывание свойства (input binding) в Angular
+         в [] передаем определенные данные [user_input]="i" -->
+        <app-user-card [userInput]="i" (deleteUserCard)="deleteUserList($event)"></app-user-card>
+
     </div>
 </div>
-

@@ -1,7 +1,7 @@
 <h1 class="name_title">КОМПОНЕТ СПИСКА TODOS</h1>
 
 <div class="content_users">
-    <div *ngFor="let i of todoService.todosSubject$ | async">
+    <div *ngFor="let i of todoService.todos$ | async">
         <app-todo-card [todoInput]="i" (deleteTodoCard)="deleteTodoList($event)"></app-todo-card>
     </div>
 </div>
