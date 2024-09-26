@@ -1,7 +1,8 @@
-import { NgFor, NgIf } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { UsersApiService } from '../users-api.service';
 import { UserCardComponent } from './user-card/user-card.component';
+import { UsersService } from '../users.service';
 
 export interface User {
   id: number;
@@ -32,21 +33,24 @@ export interface User {
   templateUrl: './users-list.component.html',
   styleUrl: './users-list.component.scss',
   standalone: true,
-  imports: [NgFor, UserCardComponent],
+  imports: [NgFor, UserCardComponent, AsyncPipe], //* AsyncPipe - (| async) - это специальная функция которая читает данные из коробочек с данныеми из Subject-ов
+  changeDetection: ChangeDetectionStrategy.OnPush, // ChangeDetectionStrategy.OnPush  - В Angular будет проверять изменилсь ли ссылка на массив.
+  //* changeDetection: ChangeDetectionStrategy.OnPush - чтобы его использовать мы не должны мутировать
+  //* объекты, массивы а должны перезаписывать их чтобы менялась ссылка чтобы Angular видел изменения
+  //* changeDetection: ChangeDetectionStrategy.OnPush - Благодаря нему по мере расширения приложения не будет зависать в будущем. 
 })
 export class UsersListComponent {
   readonly usersApiService = inject(UsersApiService);
-  users: User[] = [];
+  readonly usersService = inject(UsersService);
 
   constructor() {
     this.usersApiService.getUsers().subscribe((response: any) => {
-      this.users = response;
-      console.log('USERS: ', this.users); // Показаем данные в console браузера Chrome
+      this.usersService.setUsers(response);
     });
   }
 
   deleteUserList(id: number) {
-    this.users = this.users.filter((item) => item.id !== id);
+    this.usersService.deleteUser(id);
   }
 }
 
