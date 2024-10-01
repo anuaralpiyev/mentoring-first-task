@@ -5,7 +5,6 @@ import { BehaviorSubject } from 'rxjs';
 // Паттерн singleton это паттерн проектирования, гарантирующий, что у класса будет только один экземпляр для всего приложения
 @Injectable({ providedIn: 'root' })
 export class UsersService {
-
   // private - ограничение доступа и переменная доступна только в этом файле
   // <User[]> это generic, указывающий, что BehaviorSubject будет работать с массивом объектов типа User.
   // переменная со знаком $ говорит что это переменная, которая представляет собой экземпляр BehaviorSubject.
@@ -28,29 +27,35 @@ export class UsersService {
   // перезаписывает весь массив при этом элемент который изменили подменяет на новый а все остальные не трогает
   editUser(editedUser: User) {
     this.usersSubject$.next(
-      this.usersSubject$.value.map(
-        user => {
-          if (user.id === editedUser.id) {
-            // Если это тот юзера, которого нужно отредактировать, заменяем на обновленного юзера
-            return editedUser;
-          } else {
-            // Иначе возвращаем старого юзера без изменений
-            return user;
-          }
+      this.usersSubject$.value.map((user) => {
+        if (user.id === editedUser.id) {
+          // Если это тот юзера, которого нужно отредактировать, заменяем на обновленного юзера
+          return editedUser;
+        } else {
+          // Иначе возвращаем старого юзера без изменений
+          return user;
         }
-      )
-    )
+      })
+    );
   }
 
   // создание юзера
   // перезаписывает на новый массив который равен старому но к нему добавляет новый элемент
   createUser(user: User) {
-    this.usersSubject$.next(
-      // spread operator ... - это оператор расширения,
-      // он создает новый массив, который включает все элементы из this.users$
-      // и добавляет в конец новый объект user
-      [...this.usersSubject$.value, user]
-    )
+    const existingUser = this.usersSubject$.value.find(
+      (currentElement) => currentElement.email === user.email
+    );
+    console.log(existingUser);
+
+    if (existingUser !== undefined) {
+      alert('ТАКОЙ EMAIL УЖЕ ЗАРЕГИСТРИРОВАН');
+    } else {
+      this.usersSubject$.next([...this.usersSubject$.value, user]);
+      alert('НОВЫЙ ПОЛЬЗОВАТЕЛЬ УСПЕШНО ДОБАВЛЕН');
+    }
+    // spread operator ... - это оператор расширения,
+    // он создает новый массив, который включает все элементы из this.users$
+    // и добавляет в конец новый объект user
   }
 
   // удаление юзера
@@ -58,7 +63,7 @@ export class UsersService {
   deleteUser(id: number) {
     this.usersSubject$.next(
       this.usersSubject$.value.filter(
-        item => {
+        (item) => {
           if (item.id === id) {
             return false;
           } else {
@@ -67,6 +72,6 @@ export class UsersService {
         }
         // item => item.id !== id короткая версия if else
       )
-    )
+    );
   }
 }

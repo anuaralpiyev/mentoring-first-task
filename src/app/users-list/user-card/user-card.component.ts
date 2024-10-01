@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { User } from '../users-list.component';
 
 @Component({
   selector: 'app-user-card',
@@ -9,7 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class UserCardComponent {
   @Input()
-  userInput: any;
+  userInput!: User; // "!" - означает что данные обязательно будут но по позже. 
 
   @Output()
   deleteUserCard = new EventEmitter();

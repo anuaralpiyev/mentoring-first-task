@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Todo } from '../todos-list.component';
 
 @Component({
   selector: 'app-todo-card',
@@ -9,7 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class TodoCardComponent {
   @Input()
-  todoInput: any;
+  todoInput!: Todo; // "!" - означает что данные обязательно будут но по позже. 
 
   @Output()
   deleteTodoCard = new EventEmitter();
