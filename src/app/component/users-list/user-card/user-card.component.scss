@@ -1,0 +1,48 @@
+.text {
+  text-align: center;
+  color: #F0BA4E;
+  margin-top: 20px;
+}
+
+.content-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #8193a6;
+  border-radius: 10px;
+  padding: 15px 50px 30px;
+  width: 170px;
+  height: 320px;
+  color: #F0BA4E;
+  &:hover {
+    background-color: #14161e;
+    color: #F0BA4E;
+  }
+}
+
+.user-card {
+  margin-top: 15px;
+  overflow-wrap: break-word;
+}
+
+p {
+  &:hover {
+    color: silver;
+  }
+}
+
+.content-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  height: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  &:hover {
+    background-color: #353e4f;
+    color: #F0BA4E;
+  }
+}

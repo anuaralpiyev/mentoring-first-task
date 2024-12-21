@@ -1,0 +1,70 @@
+<div class="header_1">
+
+    <div class="header_left">
+        <div class="header_logo">
+            <img src="/assets/bmw-m-logo.svg" alt="Логотип сайта" style="width: 55px">
+        </div>
+
+        <nav class="header_nav">
+            <div class="header_nav_item" routerLink="">{{ headerItemMain }}</div>
+            <div class="header_nav_item">{{ headerItemAboutCompany }}</div>
+            <div class="header_nav_item" *ngIf="showCatalog">{{ headerItemCatalog }}</div>
+        </nav>
+
+        <button class="btn" (click)="showCatalog = !showCatalog" shadowHighLight>Скрыть/Показать Каталог</button>
+        <button class="btn" (click)="changeMenuText()" shadowHighLight>Изменить текст</button>
+        <button class="btn" routerLink="/users" shadowHighLight>Users</button>
+        <button class="btn" routerLink="/admin" shadowHighLight>Admin</button>
+    </div>
+
+    <div class="header_right">
+        <div class="header_item">
+            <img src="/assets/phone.svg" alt="Логотип телефона" style="width: 25px">
+            <div class="header_phone_number">
+                <a href="tel:+7 (708) 708-77-88">
+                    <p>+7 (708) 708-77-88</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="header_item">
+            <button class="btn_shop_cart" colorBasket shadowHighLight>
+                <img src="/assets/shop-cart.svg" alt="Логотип корзина" style="width: 25px">
+                <span>Пусто</span>
+            </button>
+        </div>
+        
+        <div class="btn-login">
+            <button class="btn-sign-in" (click)="openLoginDialog()" mat-raised-button color="primary"
+            *ngIf="(userService.user$ | async) === null">Войти</button>
+            <button class="btn-sign-out" (click)="openLogoutDialog()" mat-raised-button color="accent"
+            *ngIf="(userService.user$ | async) !== null">Выйти</button>
+        </div>
+    </div>
+
+</div>
+
+<div class="header_2">
+
+    <div class="header_2_left">
+        <div class="header_2_logo">
+            <img src="/assets/light.svg" alt="Логотип меню" style="width: 20px">
+        </div>
+        <nav class="header_nav_2" *ngIf="changeMenuText">
+            <div class="header_2_nav_item" *ngFor="let item of menuItems">{{ item }}</div>
+            <div class="current_date">
+                <h3>{{ headerItemCurrentDate }}: {{ 'medium' | customCurrentDateTime }}</h3>
+            </div>
+        </nav>
+    </div>
+
+    <div class="header_2_right">
+        <form class="header_2_form">
+            <input type="search" class="header_2_input" placeholder="Поиск, например GranTurismo...">
+        </form>
+        <div class="header_map_nav">
+            <img src="/assets/map-pin.svg" alt="Логотип навигация">
+            <button class="map_nav">Италия</button>
+        </div>
+    </div>
+</div>

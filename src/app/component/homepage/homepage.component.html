@@ -1,0 +1,9 @@
+<div class="content-main">
+    <button class="btn-image" (click)="showImage = !showImage">Показать автомобиль</button>
+    <div class="img"  *ngIf="showImage">
+        <img src="/assets/bmw2.jpg" alt="bmw2" style="width: 100%">
+    </div>
+    <div class="img">
+        <img src="/assets/bmw1.jpg" alt="bmw1" style="width: 100%">
+    </div>
+</div>

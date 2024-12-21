@@ -1,0 +1,27 @@
+.btn-image {
+  position: absolute;
+  left: 175px;
+  top: 160px;
+  font-size: 15px;
+  padding: 10px 10px;
+  border-radius: 15px;
+  border: none;
+  color: #353e4e;
+  background-color: silver;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  &:hover {
+    background-color: white;
+    color: #353e4e;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+
+.img {
+  display: flex;
+  margin: 0 auto;
+  padding: 0;
+  height: 70%;
+}

@@ -1,0 +1,37 @@
+.content-block {
+  background-color: #353e4f;
+  color: #F0BA4E;
+  border-radius: 5px;
+  width: 300px;
+  padding: 30px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.content-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #353e4f;
+}
+
+.container-btn {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.btn {
+  margin-top: 10px;
+  border-radius: 5px;
+  width: 250px;
+  &:hover {
+    background-color: #353e4f;
+    color: #F0BA4E;
+  }
+}
+
+
+

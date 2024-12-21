@@ -1,0 +1,178 @@
+.header_1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  color: white;
+  background-color: #353e4e;
+  padding: 0 175px;
+}
+
+.header_left {
+  display: flex;
+  align-items: center;
+}
+
+.header_logo {
+  margin-right: 5px;
+}
+
+.header_nav {
+  display: flex;
+  gap: 25px;
+  margin-left: 25px;
+  cursor: pointer;
+}
+
+.header_nav_item {
+  &:hover {
+    color: #F0BA4E;
+    font-weight: 600;
+  }
+}
+
+.btn {
+  height: 35px;
+  margin-left: 30px;
+  border-radius: 10px;
+  border: none;
+  padding: 0 15px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #49585f;
+  background: silver;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  &:hover {
+    background-color: white;
+    color: #353e4e;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+
+.header_right {
+  display: flex;
+  align-items: center;
+}
+
+.header_item {
+  margin-left: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.header_phone_number a {
+  text-decoration: none;
+  color: #F0BA4E;
+
+  & p {
+    margin-left: 10px;
+  }
+
+  &:hover {
+    color: white;
+    font-weight: 700;
+  }
+}
+
+.btn_shop_cart {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  border: solid 1px #F0BA4E;
+  padding: 0 15px;
+  gap: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #F0BA4E;
+  background: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+
+  &:hover {
+    color: white;
+    font-weight: 700;
+  }
+}
+
+.btn-login {
+  margin-left: 20px;
+}
+
+.header_2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  color: #4B565E;
+  background-color: #F0BA4E;
+  padding: 0 175px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header_2_left {
+  display: flex;
+  align-self: center;
+}
+
+.header_nav_2 {
+  margin-left: 30px;
+  display: flex;
+  align-self: center;
+  gap: 30px;
+}
+
+.header_2_logo {
+  display: flex;
+  align-self: center;
+  height: 50px;
+}
+
+.header_2_nav_item {
+  display: flex;
+  align-self: center;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.current_date {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #4B565E;
+  font-weight: 500;
+  margin-left: 30px;
+}
+
+.header_2_right {
+  display: flex;
+  align-self: center;
+}
+
+.header_2_input {
+  height: 35px;
+  width: 300px;
+  padding-left: 15px;
+  background: none;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  padding-right: 10px;
+  border-bottom: 1px solid #4B565E;
+  font-size: 15px;
+  margin-right: 10px;
+  color: #8193a6;
+}
+
+.header_map_nav {
+  display: flex;
+  height: 20px;
+  align-self: center;
+}
+
+.map_nav {
+  background: none;
+  border: none;
+  color: #4B565E;
+  font-size: 14px;
+}

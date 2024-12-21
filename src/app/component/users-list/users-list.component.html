@@ -1,0 +1,14 @@
+<div class="content-block">
+
+    <div class="create-user">
+        <app-create-user-dialog (createUser)="createUser($event)"></app-create-user-dialog>
+    </div>
+
+    <div class="content-users-card">
+        <div *ngFor="let user of usersService.users$ | async">
+            <app-user-card [user]="user" (deleteUser)="deleteUser($event)" (editUser)="editUser($event)"></app-user-card>
+        </div>
+    </div>
+</div>
+
+<app-create-user-button (createUserButton)="createUser($event)"></app-create-user-button>

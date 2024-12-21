@@ -1,0 +1,35 @@
+.content-block {
+  color: silver;
+  border: 1.5px solid #F0BA4E;
+  padding-top: 10px;
+  border-radius: 10px;
+  width: 400px;
+  margin: 0 auto;
+  text-align: center; /* Центрирование для inline-блочных элементов */
+  &:hover {
+    color: white;
+  background-color: #14161e;
+  }
+}
+
+.text {
+  margin-bottom: 20px;
+}
+
+.btn {
+  border-radius: 5px;
+  padding: 5px 35px;
+  margin-bottom: 20px;
+  width: 200px;
+  height: 45px;
+  cursor: pointer;
+  &:hover {
+    background-color: #353e4f;
+    color: #F0BA4E;
+    font-weight: 700;
+  }
+}
+
+.mat-icon {
+  margin-right: 10px;
+}
