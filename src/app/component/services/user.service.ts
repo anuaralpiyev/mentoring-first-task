@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
-import {IUserRole} from "../../interfaces/iuser";
+import {IUserRole} from "../interfaces/iuser";
 import {Router} from "@angular/router";
 
 @Injectable({

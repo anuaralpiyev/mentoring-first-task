@@ -5,10 +5,11 @@ import {CustomCurrentDateTimePipe} from "../pipes/custom-current-date-time.pipe"
 import {ColorBasketDirective} from "../directives/color-basket.directive";
 import {ShadowDirective} from "../directives/shadow.directive";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
-import {UserService} from "../services/user-services/user.service";
+import {UserService} from "../services/user.service";
 import {AuthComponent} from "../auth/auth.component";
 import {MatButton} from "@angular/material/button";
 import {LogoutComponent} from "../logout/logout.component";
+import {customRemoveDashesPipe} from "../pipes/remove-dashes.pipe";
 
 const showCatalog: (showText: string) => string = (showText: string) => showText;
 const text: string = showCatalog('Каталог');
@@ -24,7 +25,7 @@ const upperCaseMenuItems: string[] = menuItems.map(
 @Component({
     selector: 'app-header',
     standalone: true,
-    imports: [NgIf, NgFor, RouterLink, CustomCurrentDateTimePipe, ColorBasketDirective, ShadowDirective, MatButton, AsyncPipe],
+    imports: [NgIf, NgFor, RouterLink, CustomCurrentDateTimePipe, ColorBasketDirective, ShadowDirective, MatButton, AsyncPipe, customRemoveDashesPipe],
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss'
 })

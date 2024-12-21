@@ -9,7 +9,7 @@ export class LocalStorageService {
     return data ? JSON.parse(data) : null;
   };
 
-  public savaLocalStorage<T>(key: string, data: T): void {
+  public saveLocalStorage<T>(key: string, data: T): void {
     localStorage.setItem(key, JSON.stringify(data));
   };
 

@@ -9,6 +9,6 @@ export class customRemoveDashesPipe implements PipeTransform {
 
     transform(value: string | undefined): string | undefined {
         if (!value) return '';
-        return value.replace(/[-+()\D]/g, '')
+        return value.replace(/[-+()\D]/g, ' ')
     }
 }

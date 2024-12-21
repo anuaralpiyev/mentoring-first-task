@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
-import {UsersApiService} from "../services/user-services/users-api.service";
-import {UsersService} from "../services/user-services/users.service";
+import {UsersApiService} from "../services/users-api.service";
+import {UsersService} from "../services/users.service";
 import {IUser, IUserCreate} from "../interfaces/iuser";
 import {AsyncPipe, NgFor} from "@angular/common";
 import {UserCardComponent} from "./user-card/user-card.component";
@@ -27,13 +27,15 @@ export class UsersListComponent {
 
 
     constructor() {
-        this.usersApiService.getUsers().subscribe((responce: any) => {
-            this.usersService.setUsers(responce)
-        });
+        this.usersService.loadUsers();
 
-        this.usersService.users$.subscribe(
-            (users: IUser[]) => console.log(users)
-        )
+        // this.usersApiService.getUsers().subscribe((responce: any) => {
+        //     this.usersService.setUsers(responce)
+        // });
+        //
+        // this.usersService.users$.subscribe(
+        //     (users: IUser[]) => console.log(users)
+        // )
     }
 
 
