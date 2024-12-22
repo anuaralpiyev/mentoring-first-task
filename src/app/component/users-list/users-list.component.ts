@@ -6,6 +6,10 @@ import {AsyncPipe, NgFor} from "@angular/common";
 import {UserCardComponent} from "./user-card/user-card.component";
 import {CreateUserDialogComponent} from "./create-user-dialog/create-user-dialog.component";
 import {CreateUserButtonComponent} from "./create-user-button/create-user-button.component";
+import {Store} from "@ngrx/store";
+import {Observable} from "rxjs";
+import {selectUsers} from "./store/users.selectors";
+import {UsersActions} from "./store/users.actions";
 
 
 @Component({
@@ -24,41 +28,36 @@ import {CreateUserButtonComponent} from "./create-user-button/create-user-button
 export class UsersListComponent {
     public readonly usersApiService: UsersApiService = inject(UsersApiService)
     public readonly usersService: UsersService = inject(UsersService)
-
+    private readonly store = inject(Store);
+    public readonly users$: Observable<IUser[]> = this.store.select(selectUsers);
 
     constructor() {
-        this.usersService.loadUsers();
-
-        // this.usersApiService.getUsers().subscribe((responce: any) => {
-        //     this.usersService.setUsers(responce)
-        // });
-        //
-        // this.usersService.users$.subscribe(
-        //     (users: IUser[]) => console.log(users)
-        // )
-    }
+        this.store.dispatch(UsersActions.load());
+    };
 
 
     createUser(user: IUserCreate) {
-        this.usersService.createUser({
-            id: new Date().getTime(),
-            name: user.name,
-            email: user.email,
-            website: user.website,
-            phone: user.phone,
-            company: {
-                name: user.company.name
-            }
-        });
-    }
+        this.store.dispatch(
+            UsersActions.create({
+                user: {
+                    id: new Date().getTime(),
+                    name: user.name,
+                    email: user.email,
+                    website: user.website,
+                    phone: user.phone,
+                    company: {
+                        name: user.company.name
+                    }
+                }
+            })
+        );
+    };
 
     editUser(user: IUser) {
-        this.usersService.editUser({
-            ...user
-        });
-    }
+        this.store.dispatch(UsersActions.edit({user}));
+    };
 
     deleteUser(id: number) {
-        this.usersService.deleteUser(id)
-    }
+        this.store.dispatch(UsersActions.delete({id}));
+    };
 }
