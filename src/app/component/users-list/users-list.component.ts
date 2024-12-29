@@ -35,7 +35,6 @@ export class UsersListComponent {
         this.store.dispatch(UsersActions.load());
     };
 
-
     createUser(user: IUserCreate) {
         this.store.dispatch(
             UsersActions.create({

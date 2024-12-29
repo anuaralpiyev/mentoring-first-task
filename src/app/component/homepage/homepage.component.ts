@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {NgIf} from "@angular/common";
 
 @Component({
-  selector: 'app-homepage',
-  standalone: true,
-  imports: [NgIf],
-  templateUrl: './homepage.component.html',
-  styleUrl: './homepage.component.scss'
+    selector: 'app-homepage',
+    standalone: true,
+    imports: [NgIf],
+    templateUrl: './homepage.component.html',
+    styleUrl: './homepage.component.scss'
 })
 export class HomepageComponent {
-  showImage: boolean = true;
+    public showImage: boolean = true;
 }

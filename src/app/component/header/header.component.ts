@@ -10,9 +10,12 @@ import {AuthComponent} from "../auth/auth.component";
 import {MatButton} from "@angular/material/button";
 import {LogoutComponent} from "../logout/logout.component";
 import {customRemoveDashesPipe} from "../pipes/remove-dashes.pipe";
+import {ShowCatalog} from "../utils/show-catalog";
+import {take} from "rxjs";
 
-const showCatalog: (showText: string) => string = (showText: string) => showText;
-const text: string = showCatalog('Каталог');
+// const showCatalog: (showText: string) => string = (showText: string) => showText;
+
+const text: string = ShowCatalog('Каталог');
 
 const menuItems: string[] = ['Каталог', 'Запчасти', ' Интерьер', ' Стиль', 'Партнеры'];
 
@@ -30,7 +33,7 @@ const upperCaseMenuItems: string[] = menuItems.map(
     styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-    title: string = 'mentoring-first-task';
+    public title: string = 'mentoring-first-task';
 
     public readonly dialog: MatDialog = inject(MatDialog);
     public readonly userService: UserService = inject(UserService);
@@ -47,7 +50,6 @@ export class HeaderComponent {
         this.isUpperCase = !this.isUpperCase
     }
 
-
     public readonly headerItemMain: string = 'Главная';
     public readonly headerItemAboutCompany: string = 'О компании';
     public readonly headerItemCatalog: string = text;
@@ -57,14 +59,9 @@ export class HeaderComponent {
     public openLoginDialog(): void {
         const dialogRef: MatDialogRef<AuthComponent> = this.dialog.open(AuthComponent);
 
-        dialogRef.afterClosed().subscribe((result: string) => {
-            if (result === 'admin') {
-                this.userService.loginAsAdmin();
-            } else if (result === 'user') {
-                this.userService.loginAsUser();
-            } else {
-                return undefined;
-            }
+        dialogRef.afterClosed().pipe(take(1)).subscribe((result: string): void | null => {
+            result === 'admin' ? this.userService.loginAsAdmin() :
+                result === 'user' ? this.userService.loginAsUser() : null;
         });
     };
 
@@ -72,12 +69,8 @@ export class HeaderComponent {
     public openLogoutDialog(): void {
         const dialogRef: MatDialogRef<LogoutComponent> = this.dialog.open(LogoutComponent);
 
-        dialogRef.afterClosed().subscribe((result: string) => {
-            if (result === 'logout') {
-                this.userService.logout();
-            } else {
-                return undefined;
-            }
+        dialogRef.afterClosed().pipe(take(1)).subscribe((result: string) => {
+            result === 'logout' ? this.userService.logout() : null;
         });
     };
 }

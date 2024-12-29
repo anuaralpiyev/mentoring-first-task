@@ -5,7 +5,7 @@ import {Directive, HostBinding, HostListener} from '@angular/core';
     standalone: true
 })
 export class ShadowDirective {
-    shadowCards: string = '';
+    public shadowCards: string = '';
 
     @HostBinding('style.boxShadow')
     get boxShadow() {

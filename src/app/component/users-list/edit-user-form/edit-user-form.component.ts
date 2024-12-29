@@ -30,7 +30,6 @@ import {MatTooltip} from "@angular/material/tooltip";
 })
 export class EditUserFormComponent {
   private readonly data: { user: IUser } = inject<{ user: IUser }>(MAT_DIALOG_DATA);
-
   public readonly dialogRef: MatDialogRef<IUser> = inject(MatDialogRef<EditUserFormComponent>);
 
   private fb: FormBuilder = inject(FormBuilder);

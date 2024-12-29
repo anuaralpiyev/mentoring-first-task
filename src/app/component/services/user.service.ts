@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 import {IUserRole} from "../interfaces/iuser";
 import {Router} from "@angular/router";
@@ -10,8 +10,7 @@ export class UserService {
     private readonly userSubject$: BehaviorSubject<IUserRole | null> = new BehaviorSubject<IUserRole | null>(null);
     public readonly user$: Observable<IUserRole | null> = this.userSubject$.asObservable();
 
-    constructor(private router: Router) {
-    };
+    private readonly router: Router = inject(Router)
 
     private user: IUserRole = {
         name: 'anuar',
@@ -27,17 +26,9 @@ export class UserService {
         this.userSubject$.next({...this.user, isAdmin: false});
     };
 
-    // public get isAdmin() {
-    //     return this.userSubject$.value?.isAdmin;
-    // };
-
     public get isAdmin() {
-        if (this.userSubject$.value) {
-            return this.userSubject$.value.isAdmin;
-        } else {
-            return false;
-        }
-    }
+        return this.userSubject$.value?.isAdmin;
+    };
 
     public logout() {
         this.userSubject$.next(null);

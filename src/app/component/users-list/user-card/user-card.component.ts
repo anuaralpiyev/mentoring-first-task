@@ -10,6 +10,7 @@ import {DeleteUserDialogComponent} from "../delete-user-dialog/delete-user-dialo
 import {customUpperCasePipe} from "../../pipes/custom- upper-case.pipe";
 import {customRemoveDashesPipe} from "../../pipes/remove-dashes.pipe";
 import {ShadowDirective} from "../../directives/shadow.directive";
+import {take} from "rxjs";
 
 @Component({
     selector: 'app-user-card',
@@ -27,28 +28,26 @@ import {ShadowDirective} from "../../directives/shadow.directive";
 })
 export class UserCardComponent {
 
-    private readonly dialog: MatDialog = inject(MatDialog);
-    public snackBar: MatSnackBar = inject(MatSnackBar);
-
     @Input()
     public user!: IUser;
 
     @Output()
     public deleteUser: EventEmitter<number> = new EventEmitter();
 
-    // public onDeleteUser(userId: number) {
-    //     this.deleteUser.emit(userId);
-    // }
-
     @Output()
     public editUser: EventEmitter<IUser> = new EventEmitter<IUser>();
+
+
+    private readonly dialog: MatDialog = inject(MatDialog);
+    public snackBar: MatSnackBar = inject(MatSnackBar);
+
 
     openEditDialog(): void {
         const dialogRef: MatDialogRef<EditUserFormComponent> = this.dialog.open(EditUserFormComponent, {
             data: {user: this.user},
         });
 
-        dialogRef.afterClosed().subscribe((result: any) => {
+        dialogRef.afterClosed().pipe(take(1)).subscribe((result: any) => {
             if (result) {
                 this.editUser.emit(result);
                 this.snackBar.open('Данные юзера обновились!', 'Ok!', {
@@ -62,12 +61,13 @@ export class UserCardComponent {
         });
     }
 
+
     openDeleteDialog(): void {
         const dialogRef: MatDialogRef<DeleteUserDialogComponent> = this.dialog.open(DeleteUserDialogComponent, {
             data: {user: this.user},
         });
 
-        dialogRef.afterClosed().subscribe((result: boolean | undefined) => {
+        dialogRef.afterClosed().pipe(take(1)).subscribe((result: boolean | undefined) => {
             if (result) {
                 this.deleteUser.emit(this.user.id);
                 this.snackBar.open('Юзер удален...', 'Ok!', {

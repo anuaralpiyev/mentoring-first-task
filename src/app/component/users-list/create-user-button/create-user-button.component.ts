@@ -7,6 +7,7 @@ import {MatMiniFabButton} from "@angular/material/button";
 import {MatTooltip} from "@angular/material/tooltip";
 import {CreateUserFormComponent} from "../create-user-form/create-user-form.component";
 import {ShadowDirective} from "../../directives/shadow.directive";
+import {take} from "rxjs";
 
 @Component({
     selector: 'app-create-user-button',
@@ -31,7 +32,7 @@ export class CreateUserButtonComponent {
     openCreateUserButton(): void {
         const dialogRef: MatDialogRef<CreateUserFormComponent> = this.dialog.open(CreateUserFormComponent);
 
-        dialogRef.afterClosed().subscribe((result: IUserCreate) => {
+        dialogRef.afterClosed().pipe(take(1)).subscribe((result: IUserCreate) => {
             if (result) {
                 this.createUserButton.emit(result);
                 this.snackBar.open('Юзер создан...', 'Ok!', {

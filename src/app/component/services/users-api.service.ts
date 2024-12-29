@@ -7,7 +7,6 @@ import {IUser} from "../interfaces/iuser";
 @Injectable({providedIn: "root"})
 export class UsersApiService {
     private readonly http: HttpClient = inject(HttpClient);
-
     private readonly url: string = 'https://jsonplaceholder.typicode.com';
 
     getUsers(): Observable<IUser[]> {

@@ -25,11 +25,9 @@ import {MatTooltip} from "@angular/material/tooltip";
     styleUrl: './create-user-form.component.scss'
 })
 export class CreateUserFormComponent {
-    public readonly dialogRef:MatDialogRef<CreateUserFormComponent> = inject(MatDialogRef<CreateUserFormComponent>);
+    public readonly dialogRef: MatDialogRef<CreateUserFormComponent> = inject(MatDialogRef<CreateUserFormComponent>);
 
     public fb: FormBuilder = inject(FormBuilder);
-
-    // public matcher: MyErrorEstateMatcher = new MyErrorEstateMatcher();
 
     public form = this.fb.group({
         name: ['', [Validators.required, Validators.minLength(3), Validators.pattern(/^[A-za-z]+$/)]],
