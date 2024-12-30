@@ -1,17 +1,17 @@
-import {inject, Injectable} from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
-import {IUser, IUserCreate} from "../interfaces/iuser";
-import {LocalStorageService} from "./local-storage.service";
-import {UsersApiService} from "./users-api.service";
+import { inject, Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from "rxjs";
+import { IUser, IUserCreate } from "../interfaces/iuser";
+import { LocalStorageService } from "./local-storage.service";
+import { UsersApiService } from "./users-api.service";
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class UsersService {
     private readonly localStorageService: LocalStorageService = inject(LocalStorageService);
     private readonly usersApiService: UsersApiService = inject(UsersApiService);
     private usersSubject$: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>([]);
     public readonly users$: Observable<IUser[]> = this.usersSubject$.asObservable();
     private readonly localStorageUsersKey: string = 'users';
-
+    
 
     private setUsers(usersData: IUser[]) {
         this.localStorageService.saveLocalStorage(
@@ -58,9 +58,9 @@ export class UsersService {
 
     public deleteUser(userId: number): void {
         const newArrayUsers: IUser[] = this.usersSubject$.value.filter(
-            (user: IUser) => user.id !== userId); // Условие: оставляем только тех пользователей, чей id не равен userId
+            (user: IUser) => user.id !== userId);
         const findUser: IUser | undefined = this.usersSubject$.value.find(
-            (user: IUser) => user.id === userId); // Условие: ищем пользователя с id равным userId
+            (user: IUser) => user.id === userId);
 
         if (findUser) this.setUsers(newArrayUsers);
 

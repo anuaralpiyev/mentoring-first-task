@@ -1,4 +1,4 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
     name: 'customRemoveDashes',
@@ -6,7 +6,6 @@ import {Pipe, PipeTransform} from '@angular/core';
     pure: true
 })
 export class customRemoveDashesPipe implements PipeTransform {
-
     transform(value?: string): string {
         if (!value) return '';
         return value.replace(/[-+()\D]/g, ' ')

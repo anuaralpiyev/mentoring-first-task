@@ -26,7 +26,7 @@
 
 .header_nav_item {
   &:hover {
-    color: #F0BA4E;
+    color: #f0ba4e;
     font-weight: 600;
   }
 }
@@ -41,7 +41,7 @@
   font-weight: 600;
   color: #49585f;
   background: silver;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
   &:hover {
     background-color: white;
@@ -64,7 +64,7 @@
 
 .header_phone_number a {
   text-decoration: none;
-  color: #F0BA4E;
+  color: #f0ba4e;
 
   & p {
     margin-left: 10px;
@@ -81,14 +81,14 @@
   display: flex;
   align-items: center;
   border-radius: 25px;
-  border: solid 1px #F0BA4E;
+  border: solid 1px #f0ba4e;
   padding: 0 15px;
   gap: 5px;
   font-size: 15px;
   font-weight: 600;
-  color: #F0BA4E;
+  color: #f0ba4e;
   background: none;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   cursor: pointer;
 
   &:hover {
@@ -106,10 +106,10 @@
   justify-content: space-between;
   align-items: center;
   height: 50px;
-  color: #4B565E;
-  background-color: #F0BA4E;
+  color: #4b565e;
+  background-color: #f0ba4e;
   padding: 0 175px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .header_2_left {
@@ -138,8 +138,8 @@
 }
 
 .current_date {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #4B565E;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #4b565e;
   font-weight: 500;
   margin-left: 30px;
 }
@@ -158,7 +158,7 @@
   border-right: none;
   border-left: none;
   padding-right: 10px;
-  border-bottom: 1px solid #4B565E;
+  border-bottom: 1px solid #4b565e;
   font-size: 15px;
   margin-right: 10px;
   color: #8193a6;
@@ -173,6 +173,6 @@
 .map_nav {
   background: none;
   border: none;
-  color: #4B565E;
+  color: #4b565e;
   font-size: 14px;
 }

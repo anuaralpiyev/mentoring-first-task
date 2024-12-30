@@ -1,4 +1,4 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
     name: 'customCurrentDateTime',
@@ -13,10 +13,10 @@ export class CustomCurrentDateTimePipe implements PipeTransform {
 
     private getFormatOptions(format: string): Intl.DateTimeFormatOptions {
         const formatOptions: Record<string, Intl.DateTimeFormatOptions> = {
-            short: {dateStyle: 'short', timeStyle: 'short'},
-            long: {dateStyle: 'long', timeStyle: 'long'},
+            short: { dateStyle: 'short', timeStyle: 'short' },
+            long: { dateStyle: 'long', timeStyle: 'long' },
         };
 
-        return formatOptions[format] || {dateStyle: 'medium', timeStyle: 'medium'};
+        return formatOptions[format] || { dateStyle: 'medium', timeStyle: 'medium' };
     }
 }

@@ -1,15 +1,15 @@
-import {Component, inject} from '@angular/core';
-import {UsersApiService} from "../services/users-api.service";
-import {UsersService} from "../services/users.service";
-import {IUser, IUserCreate} from "../interfaces/iuser";
-import {AsyncPipe, NgFor} from "@angular/common";
-import {UserCardComponent} from "./user-card/user-card.component";
-import {CreateUserDialogComponent} from "./create-user-dialog/create-user-dialog.component";
-import {CreateUserButtonComponent} from "./create-user-button/create-user-button.component";
-import {Store} from "@ngrx/store";
-import {Observable} from "rxjs";
-import {selectUsers} from "./store/users.selectors";
-import {UsersActions} from "./store/users.actions";
+import { Component, inject } from '@angular/core';
+import { UsersApiService } from "../services/users-api.service";
+import { UsersService } from "../services/users.service";
+import { IUser, IUserCreate } from "../interfaces/iuser";
+import { AsyncPipe, NgFor } from "@angular/common";
+import { UserCardComponent } from "./user-card/user-card.component";
+import { CreateUserDialogComponent } from "./create-user-dialog/create-user-dialog.component";
+import { CreateUserButtonComponent } from "./create-user-button/create-user-button.component";
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
+import { selectUsers } from "./store/users.selectors";
+import { UsersActions } from "./store/users.actions";
 
 
 @Component({
@@ -53,10 +53,10 @@ export class UsersListComponent {
     };
 
     editUser(user: IUser) {
-        this.store.dispatch(UsersActions.edit({user}));
+        this.store.dispatch(UsersActions.edit({ user }));
     };
 
     deleteUser(id: number) {
-        this.store.dispatch(UsersActions.delete({id}));
+        this.store.dispatch(UsersActions.delete({ id }));
     };
 }

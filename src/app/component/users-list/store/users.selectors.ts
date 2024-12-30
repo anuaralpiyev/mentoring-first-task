@@ -1,5 +1,5 @@
-import {createSelector} from "@ngrx/store";
-import {IUser} from "../../interfaces/iuser";
+import { createSelector } from "@ngrx/store";
+import { IUser } from "../../interfaces/iuser";
 
 interface UserState {
     users: IUser[];

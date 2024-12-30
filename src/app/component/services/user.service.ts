@@ -1,7 +1,7 @@
-import {inject, Injectable} from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
-import {IUserRole} from "../interfaces/iuser";
-import {Router} from "@angular/router";
+import { inject, Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from "rxjs";
+import { IUserRole } from "../interfaces/iuser";
+import { Router } from "@angular/router";
 
 @Injectable({
     providedIn: 'root'
@@ -19,11 +19,11 @@ export class UserService {
     };
 
     public loginAsAdmin() {
-        this.userSubject$.next({...this.user, isAdmin: true});
+        this.userSubject$.next({ ...this.user, isAdmin: true });
     };
 
     public loginAsUser() {
-        this.userSubject$.next({...this.user, isAdmin: false});
+        this.userSubject$.next({ ...this.user, isAdmin: false });
     };
 
     public get isAdmin() {

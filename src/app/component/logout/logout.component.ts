@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import {MatButton} from "@angular/material/button";
-import {MatDialogClose} from "@angular/material/dialog";
-import {ShadowDirective} from "../directives/shadow.directive";
-import {MatTooltip} from "@angular/material/tooltip";
-import {MatIcon} from "@angular/material/icon";
+import { MatButton } from "@angular/material/button";
+import { MatDialogClose } from "@angular/material/dialog";
+import { ShadowDirective } from "../directives/shadow.directive";
+import { MatTooltip } from "@angular/material/tooltip";
+import { MatIcon } from "@angular/material/icon";
 
 @Component({
   selector: 'app-logout',
@@ -18,6 +18,4 @@ import {MatIcon} from "@angular/material/icon";
   templateUrl: './logout.component.html',
   styleUrl: './logout.component.scss'
 })
-export class LogoutComponent {
-
-}
+export class LogoutComponent { }

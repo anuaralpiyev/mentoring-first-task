@@ -7,7 +7,7 @@
             <input matInput type="text" placeholder="Введите имя..." formControlName="name">
             <mat-icon matSuffix>mode_edit</mat-icon>
             <mat-error
-                    *ngIf="form.controls['name'].hasError('minlength') && !form.controls['name'].hasError('required')">
+                *ngIf="form.controls['name'].hasError('minlength') && !form.controls['name'].hasError('required')">
                 Слишком короткое...
             </mat-error>
             <mat-error *ngIf="form.controls['name'].hasError('required')">Заполните поле!</mat-error>
@@ -18,7 +18,7 @@
             <input matInput type="text" placeholder="Введите email..." formControlName="email">
             <mat-icon matSuffix>mode_edit</mat-icon>
             <mat-error
-                    *ngIf="form.controls['email'].hasError('minlength') && !form.controls['email'].hasError('required')">
+                *ngIf="form.controls['email'].hasError('minlength') && !form.controls['email'].hasError('required')">
                 Введите email...
             </mat-error>
             <mat-error *ngIf="form.controls['email'].hasError('required')">Заполните поле!</mat-error>
@@ -29,7 +29,7 @@
             <input matInput type="text" placeholder="Введите номер телефона..." formControlName="phone">
             <mat-icon matSuffix>mode_edit</mat-icon>
             <mat-error
-                    *ngIf="form.controls['phone'].hasError('minlength') && !form.controls['phone'].hasError('required')">
+                *ngIf="form.controls['phone'].hasError('minlength') && !form.controls['phone'].hasError('required')">
                 Введите номер телефона...
             </mat-error>
             <mat-error *ngIf="form.controls['phone'].hasError('required')">Заполните поле!</mat-error>
@@ -40,7 +40,7 @@
             <input matInput type="text" placeholder="Введите имя сайта..." formControlName="website">
             <mat-icon matSuffix>mode_edit</mat-icon>
             <mat-error
-                    *ngIf="form.controls['website'].hasError('minlength') && !form.controls['website'].hasError('required')">
+                *ngIf="form.controls['website'].hasError('minlength') && !form.controls['website'].hasError('required')">
                 Введите название сайта...
             </mat-error>
             <mat-error *ngIf="form.controls['website'].hasError('required')">Заполните поле!</mat-error>
@@ -48,10 +48,10 @@
 
         <mat-form-field class="form-field" formGroupName="company">
             <mat-label>Компания</mat-label>
-            <input matInput placeholder="Введите название компании" formControlName="name"/>
+            <input matInput placeholder="Введите название компании" formControlName="name" />
             <mat-icon matSuffix>mode_edit</mat-icon>
             <mat-error
-                    *ngIf="form.controls['company'].hasError('minlength') && !form.controls['company'].hasError('required')">
+                *ngIf="form.controls['company'].hasError('minlength') && !form.controls['company'].hasError('required')">
                 Введите название компании...
             </mat-error>
             <mat-error *ngIf="form.controls['company'].hasError('required')">Заполните поле!</mat-error>
@@ -59,13 +59,13 @@
 
         <div class="container-btn">
             <button class="btn" type="submit" (click)="submitForm()" mat-raised-button color="primary"
-                    [disabled]="form.invalid" matTooltip="СОХРАНИТЬ">
+                [disabled]="form.invalid" matTooltip="СОХРАНИТЬ">
                 <mat-icon>bookmarks</mat-icon>
                 СОХРАНИТЬ
             </button>
 
             <button class="btn" type="submit" [mat-dialog-close]="false" mat-raised-button color="warn"
-                    matTooltip="ОТМЕНА">
+                matTooltip="ОТМЕНА">
                 <mat-icon>close</mat-icon>
                 ОТМЕНА
             </button>

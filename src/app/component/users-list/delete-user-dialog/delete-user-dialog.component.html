@@ -2,13 +2,11 @@
     <h2 class="text" mat-dialog-title>Удалить юзера:<span style="padding-left: 10px">{{ this.data.user.name }} ?</span>
     </h2>
     <mat-dialog-actions>
-        <button class="btn" mat-raised-button color="warn"
-                [mat-dialog-close]="true" matTooltip="удалить">
+        <button class="btn" mat-raised-button color="warn" [mat-dialog-close]="true" matTooltip="удалить">
             <mat-icon>delete_forever</mat-icon>
             УДАЛИТЬ
         </button>
-        <button class="btn" mat-raised-button color="primary"
-                [mat-dialog-close]="false" matTooltip="отмена">
+        <button class="btn" mat-raised-button color="primary" [mat-dialog-close]="false" matTooltip="отмена">
             <mat-icon>close</mat-icon>
             ОТМЕНА
         </button>

@@ -1,6 +1,6 @@
-import {createReducer, on} from "@ngrx/store";
-import {UsersActions} from "./users.actions";
-import {IUser, IUserCreate} from "../../interfaces/iuser";
+import { createReducer, on } from "@ngrx/store";
+import { UsersActions } from "./users.actions";
+import { IUser, IUserCreate } from "../../interfaces/iuser";
 
 const initialState: { users: IUser[] } = {
     users: [],
