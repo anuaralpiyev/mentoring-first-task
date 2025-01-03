@@ -11,7 +11,7 @@ export class UsersService {
     private usersSubject$: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>([]);
     public readonly users$: Observable<IUser[]> = this.usersSubject$.asObservable();
     private readonly localStorageUsersKey: string = 'users';
-    
+
 
     private setUsers(usersData: IUser[]) {
         this.localStorageService.saveLocalStorage(

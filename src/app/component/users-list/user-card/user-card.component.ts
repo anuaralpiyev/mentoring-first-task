@@ -25,7 +25,6 @@ import { Subject, takeUntil, } from "rxjs";
     styleUrl: './user-card.component.scss'
 })
 export class UserCardComponent implements OnDestroy {
-
     @Input()
     public user!: IUser;
 
@@ -38,7 +37,6 @@ export class UserCardComponent implements OnDestroy {
     private readonly dialog: MatDialog = inject(MatDialog);
     public snackBar: MatSnackBar = inject(MatSnackBar);
     private destroy$ = new Subject<void>();
-
 
     openEditDialog(): void {
         const dialogRef: MatDialogRef<EditUserFormComponent> = this.dialog.open(EditUserFormComponent, {

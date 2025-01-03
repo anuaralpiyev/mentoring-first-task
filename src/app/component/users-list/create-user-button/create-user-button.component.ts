@@ -29,7 +29,6 @@ export class CreateUserButtonComponent implements OnDestroy {
     public snackBar: MatSnackBar = inject(MatSnackBar);
     private destroy$ = new Subject<void>();
 
-
     openCreateUserButton(): void {
         const dialogRef: MatDialogRef<CreateUserFormComponent> = this.dialog.open(CreateUserFormComponent);
 

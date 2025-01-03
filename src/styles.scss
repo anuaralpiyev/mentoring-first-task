@@ -3,11 +3,17 @@ html {
 }
 
 body {
-  width: 100%; /* Занимает всю ширину экрана */
-  margin: 0; /* Убирает любые отступы */
-  padding: 0; /* Убирает внутренние отступы */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

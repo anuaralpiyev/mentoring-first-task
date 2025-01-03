@@ -12,14 +12,8 @@ import { LogoutComponent } from "../logout/logout.component";
 import { customRemoveDashesPipe } from "../pipes/remove-dashes.pipe";
 import { ShowCatalog } from "../utils/show-catalog";
 import { Subject, takeUntil } from "rxjs";
-
-const text: string = ShowCatalog('Каталог');
-
-const menuItems: string[] = ['Каталог', 'Запчасти', ' Интерьер', ' Стиль', 'Партнеры'];
-
-const upperCaseMenuItems: string[] = menuItems.map(
-    (item: string) => item.toUpperCase()
-)
+import { menuItems } from "../utils/menuItems";
+import { toLowerCaseArray, toUpperCaseArray } from "../utils/upperCaseMenuItems";
 
 @Component({
     selector: 'app-header',
@@ -45,21 +39,19 @@ export class HeaderComponent implements OnDestroy {
     public readonly userService: UserService = inject(UserService);
     private destroy$ = new Subject<void>();
 
+    public readonly headerItemMain: string = 'Главная';
+    public readonly headerItemAboutCompany: string = 'О компании';
+    public readonly headerItemCatalog: string = ShowCatalog('Каталог');
+    public readonly headerItemCurrentDate: string = 'Дата';
+
     public showCatalog: boolean = false;
-    public menuItems: string[] = upperCaseMenuItems;
+    public menuItems: string[] = menuItems
     public isUpperCase: boolean = true;
 
     public changeMenuText() {
-        this.menuItems = upperCaseMenuItems.map(
-            (item: string) => this.isUpperCase ? item.toLowerCase() : item.toUpperCase()
-        )
+        this.menuItems = this.isUpperCase ? toLowerCaseArray(this.menuItems) : toUpperCaseArray(this.menuItems);
         this.isUpperCase = !this.isUpperCase
     }
-
-    public readonly headerItemMain: string = 'Главная';
-    public readonly headerItemAboutCompany: string = 'О компании';
-    public readonly headerItemCatalog: string = text;
-    public readonly headerItemCurrentDate: string = 'Дата';
 
 
     public openLoginDialog(): void {
@@ -72,7 +64,6 @@ export class HeaderComponent implements OnDestroy {
                     result === 'user' ? this.userService.loginAsUser() : null;
             });
     };
-
 
     public openLogoutDialog(): void {
         const dialogRef: MatDialogRef<LogoutComponent> = this.dialog.open(LogoutComponent);

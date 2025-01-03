@@ -18,4 +18,4 @@ import { MatIcon } from "@angular/material/icon";
   templateUrl: './logout.component.html',
   styleUrl: './logout.component.scss'
 })
-export class LogoutComponent { }
+export class LogoutComponent {}

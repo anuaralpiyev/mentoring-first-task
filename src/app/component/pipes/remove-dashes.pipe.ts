@@ -7,7 +7,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class customRemoveDashesPipe implements PipeTransform {
     transform(value?: string): string {
-        if (!value) return '';
+        if (!value) {
+            return '';
+        }
         return value.replace(/[-+()\D]/g, ' ')
     }
 }
