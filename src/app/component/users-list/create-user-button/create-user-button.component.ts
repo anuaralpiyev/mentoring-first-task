@@ -24,7 +24,6 @@ import { Subject, takeUntil } from 'rxjs';
 export class CreateUserButtonComponent implements OnDestroy {
     @Output()
     public createUserButton: EventEmitter<IUserCreate> = new EventEmitter<IUserCreate>();
-
     private dialog: MatDialog = inject(MatDialog);
     public snackBar: MatSnackBar = inject(MatSnackBar);
     private destroy$ = new Subject<void>();

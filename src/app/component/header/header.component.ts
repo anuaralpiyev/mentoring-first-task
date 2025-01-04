@@ -10,7 +10,7 @@ import { AuthComponent } from "../auth/auth.component";
 import { MatButton } from "@angular/material/button";
 import { LogoutComponent } from "../logout/logout.component";
 import { customRemoveDashesPipe } from "../pipes/remove-dashes.pipe";
-import { ShowCatalog } from "../utils/show-catalog";
+import { showCatalog } from "../utils/show-catalog";
 import { Subject, takeUntil } from "rxjs";
 import { menuItems } from "../utils/menuItems";
 import { toLowerCaseArray, toUpperCaseArray } from "../utils/upperCaseMenuItems";
@@ -41,7 +41,7 @@ export class HeaderComponent implements OnDestroy {
 
     public readonly headerItemMain: string = 'Главная';
     public readonly headerItemAboutCompany: string = 'О компании';
-    public readonly headerItemCatalog: string = ShowCatalog('Каталог');
+    public readonly headerItemCatalog: string = showCatalog('Каталог');
     public readonly headerItemCurrentDate: string = 'Дата';
 
     public showCatalog: boolean = false;

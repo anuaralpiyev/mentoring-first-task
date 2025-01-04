@@ -7,10 +7,9 @@ import { Router } from "@angular/router";
     providedIn: 'root'
 })
 export class UserService {
+    private readonly router: Router = inject(Router);
     private readonly userSubject$: BehaviorSubject<IUserRole | null> = new BehaviorSubject<IUserRole | null>(null);
     public readonly user$: Observable<IUserRole | null> = this.userSubject$.asObservable();
-
-    private readonly router: Router = inject(Router)
 
     private user: IUserRole = {
         name: 'anuar',
@@ -33,5 +32,5 @@ export class UserService {
     public logout() {
         this.userSubject$.next(null);
         this.router.navigate(['']).then((result: boolean) => false);
-    }
+    };
 }
