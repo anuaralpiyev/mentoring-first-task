@@ -11,5 +11,5 @@ import { FooterComponent } from "./component/footer/footer.component";
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title: string = 'mentoring-first-project';
+  public readonly title: string = 'mentoring-first-project';
 }

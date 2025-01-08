@@ -26,7 +26,6 @@ import { MatTooltip } from "@angular/material/tooltip";
 })
 export class CreateUserFormComponent {
     public readonly dialogRef: MatDialogRef<CreateUserFormComponent> = inject(MatDialogRef<CreateUserFormComponent>);
-
     public fb: FormBuilder = inject(FormBuilder);
 
     public form = this.fb.group({
